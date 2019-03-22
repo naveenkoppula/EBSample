@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{css/bootstrap.min-4.0.0.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	<div th:include="fragments/header::head"></div>
+	<div class="container">
+		<table id="newsTable" class="table">
+			<thead>
+			  <tr>
+			    <th>Content Id</th>
+			    <th>Name</th>
+			    <th>Description</th>
+			  </tr>
+			</thead>
+		    <tbody>
+		    	
+			   <tr th:each="n,rowStat: ${news}"
+			      th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+			        <td th:text="${n.id}" />
+			    	<td th:text="${n.name}" />
+			        <td th:text="${n.description}" />
+			    </tr>
+			</tbody>
+		</table>
+	</div>
+	<div th:include="fragments/footer::foot"></div>
+</body>
+</html>
