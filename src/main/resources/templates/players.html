@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>CMS</title>
+</head>
+<body>
+	
+	<div layout:fragment="content" class="container">
+		<table id="newsTable" class="table">
+			<thead>
+			  <tr>
+			    <th>Content Id</th>
+			    <th>Name</th>
+			    <th>Description</th>
+			  </tr>
+			</thead>
+		    <tbody>
+		    	
+			   <tr th:each="n,rowStat: ${players}"
+			      th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+			        <td th:text="${n.id}" />
+			    	<td th:text="${n.full_name}" />
+			    </tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
